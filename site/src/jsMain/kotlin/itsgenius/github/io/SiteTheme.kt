@@ -16,10 +16,20 @@ class SitePalette(
     val nearBackground: Color,
     val cobweb: Color,
     val brand: Brand,
+    val textPrimary: Color = Color.rgb(0x12F7D6),
+    val textSecondary: Color= Color.rgb(0xFFFFFF),
+    val iconTintLight: Color= Color.rgb(0xFFFFFF),
+    val iconTintDark: Color = Color.rgb(0x292F36),
+    val bgColor: Color = Color.rgb(0x292F36),
+    val dividerColor: Color = Color.rgb(0x43454D),
+    val tabBg: Color = Color.rgb(0x1A1E23),
+    val cardBg: Color = Color.rgb(0x1A1E23),
+    val gray: Color = Color.rgb(0x43454D)
 ) {
     class Brand(
-        val primary: Color = Color.rgb(0x3C83EF),
-        val accent: Color = Color.rgb(0xF3DB5B),
+        val primary: Color = Color.rgb(0x12F7D6),
+        val accent: Color = Color.rgb(0x1A1E23),
+        val bgColor: Color = Color.rgb(0x292F36),
     )
 }
 
@@ -28,16 +38,16 @@ object SitePalettes {
         nearBackground = Color.rgb(0xF4F6FA),
         cobweb = Colors.LightGray,
         brand = SitePalette.Brand(
-            primary = Color.rgb(0x3C83EF),
-            accent = Color.rgb(0xFCBA03),
+            primary =  Color.rgb(0x12F7D6),
+            accent =  Color.rgb(0x292F36),
         )
     )
     val dark = SitePalette(
         nearBackground = Color.rgb(0x13171F),
         cobweb = Colors.LightGray.inverted(),
         brand = SitePalette.Brand(
-            primary = Color.rgb(0x3C83EF),
-            accent = Color.rgb(0xF3DB5B),
+            primary = Color.rgb(0x12F7D6),
+            accent =  Color.rgb(0x292F36),
         )
     )
 }

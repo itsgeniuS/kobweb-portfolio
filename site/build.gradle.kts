@@ -1,4 +1,5 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import kotlinx.html.link
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -13,7 +14,28 @@ version = "1.0-SNAPSHOT"
 kobweb {
     app {
         index {
-            description.set("Powered by Kobweb")
+            description.set("Thulasi Rajan - Senior Android Developer")
+            head.add {
+                link(rel = "preconnect", href = "https://fonts.googleapis.com")
+                link(rel = "preconnect", href = "https://fonts.gstatic.com") {
+                    attributes["crossorigin"] = ""
+                }
+
+                link(
+                    href = "https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap",
+                    rel = "stylesheet"
+                )
+
+                link(
+                    href = "https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap",
+                    rel = "stylesheet"
+                )
+
+                link(
+                    href = "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap",
+                    rel = "stylesheet"
+                )
+            }
         }
     }
 }

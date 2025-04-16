@@ -31,6 +31,8 @@ import com.varabyte.kobweb.silk.style.breakpoint.displayIfAtLeast
 import com.varabyte.kobweb.silk.style.breakpoint.displayUntil
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
+import itsgenius.github.io.components.routes.Routes
+import itsgenius.github.io.components.routes.SocialLinks
 import org.jetbrains.compose.web.css.*
 import itsgenius.github.io.components.widgets.IconButton
 import itsgenius.github.io.toSitePalette
@@ -39,6 +41,35 @@ val NavHeaderStyle = CssStyle.base {
     Modifier.fillMaxWidth().padding(1.cssRem)
 }
 
+enum class NavHeaderType() {
+    Text,
+    Social,
+    Search,
+    Logo,
+    None,
+}
+
+data class NavHeaderData(
+    val title: String,
+    val icon: Int,
+    val type: NavHeaderType = NavHeaderType.None,
+    val isSelected: Boolean= false,
+    val isEnabled: Boolean = true,
+    val path: String?= null,
+    val link: String?= null,
+)
+
+val headerItems = arrayListOf(
+    NavHeaderData(title = "Logo",  icon = -1, type = NavHeaderType.Logo, path = Routes.home),
+    NavHeaderData(title = "Home",  icon = -1, type = NavHeaderType.Text, path = Routes.home),
+    NavHeaderData(title = "Blogs",  icon = -1, type = NavHeaderType.Text, path = Routes.blogs),
+    NavHeaderData(title = "Search",  icon = -1, type = NavHeaderType.Search),
+    NavHeaderData(title = "Linked In",  icon = -1, type = NavHeaderType.Social, isEnabled = false),
+    NavHeaderData(title = "Resume",  icon = -1, type = NavHeaderType.Social, link = SocialLinks.RESUME),
+    NavHeaderData(title = "Github",  icon = -1, type = NavHeaderType.Social, link = SocialLinks.GITHUB),
+    NavHeaderData(title = "Medium",  icon = -1, type = NavHeaderType.Social, link = SocialLinks.MEDIUM),
+)
+
 @Composable
 private fun NavLink(path: String, text: String) {
     Link(path, text, variant = UndecoratedLinkVariant.then(UncoloredLinkVariant))
@@ -46,8 +77,9 @@ private fun NavLink(path: String, text: String) {
 
 @Composable
 private fun MenuItems() {
-    NavLink("/", "Home")
-    NavLink("/about", "About")
+    headerItems.forEach { menuItem ->
+        NavLink(path = menuItem.path ?: menuItem.link ?: "/", text = menuItem.title)
+    }
 }
 
 @Composable

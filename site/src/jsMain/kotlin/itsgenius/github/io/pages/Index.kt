@@ -57,7 +57,7 @@ val HomeGridCellStyle = CssStyle.base {
 }
 
 @Composable
-private fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, height: Int? = null) {
+fun GridCell(color: Color, row: Int, column: Int, width: Int? = null, height: Int? = null) {
     Div(
         HomeGridCellStyle.toModifier()
             .setVariable(GridCellColorVar, color)
