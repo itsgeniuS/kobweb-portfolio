@@ -16,9 +16,14 @@ import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.toAttrs
 import itsgenius.github.io.HeadlineTextStyle
+import itsgenius.github.io.components.Res
+import itsgenius.github.io.components.Res.Icons.HEADER_DIVIDER
+import itsgenius.github.io.components.Res.Images.BLOGS_SCROLL
 import itsgenius.github.io.components.layouts.PageLayoutWithoutFooter
 import itsgenius.github.io.components.routes.Routes
-import itsgenius.github.io.components.sections.*
+import itsgenius.github.io.components.sections.BtnFilled
+import itsgenius.github.io.components.sections.BtnOutlined
+import itsgenius.github.io.components.sections.EmptyBoxSmallVertical
 import itsgenius.github.io.components.sections.blog.BlogListItem
 import itsgenius.github.io.components.sections.blog.recentBlogsList
 import itsgenius.github.io.components.styles.blogContentHint
@@ -35,23 +40,30 @@ import org.jetbrains.compose.web.dom.Div
 @Page(Routes.blogs)
 @Composable
 fun BlogListingPage() {
-    PageLayoutWithoutFooter("Blogs"){
+    PageLayoutWithoutFooter("Blogs") {
         val pageHeader = remember {
-            mutableStateOf(PageHeaderInfo(
-                title = "Blogs",
-                desc = "My thoughts on android, and about the tools that i use",
-                canShowIcon = true,
-                icon = "/blogs_scroll.png",
-                iconName = "Blogs",
-            ))
+            mutableStateOf(
+                PageHeaderInfo(
+                    title = "Blogs",
+                    desc = "My thoughts on android, and about the tools that i use",
+                    canShowIcon = true,
+                    icon = BLOGS_SCROLL,
+                    iconName = "Blogs",
+                )
+            )
         }
 
-        Column(modifier = Modifier.fillMaxWidth(),
+        Column(
+            modifier = Modifier.fillMaxWidth(),
             verticalArrangement = ColumnDefaults.VerticalArrangement,
             horizontalAlignment = Alignment.CenterHorizontally,
             content = {
-                if(pageHeader.value.canShowIcon) {
-                    Image(pageHeader.value.icon, pageHeader.value.iconName, Modifier.height(6.cssRem).display(DisplayStyle.Block))
+                if (pageHeader.value.canShowIcon) {
+                    Image(
+                        pageHeader.value.icon,
+                        pageHeader.value.iconName,
+                        Modifier.height(6.cssRem).display(DisplayStyle.Block)
+                    )
                 }
 
                 EmptyBoxSmallVertical(size = 1.cssRem)
@@ -63,7 +75,11 @@ fun BlogListingPage() {
                     )
                 }
 
-                Image("/header_divider.svg", "header_divider", Modifier.padding(top = 1.cssRem))
+                Image(
+                    src = HEADER_DIVIDER,
+                    description = "header_divider",
+                    modifier = Modifier.padding(top = 1.cssRem),
+                )
 
                 EmptyBoxSmallVertical(size = 1.cssRem)
 
@@ -76,10 +92,10 @@ fun BlogListingPage() {
                 SimpleGrid(
                     numColumns = numColumns(
                         sm = 1,
-                        md = 2,
+                        md = 1,
                         xl = 2,
-                        base =  2,
-                        lg =  2,
+                        base = 1,
+                        lg = 2,
                     ),
                     modifier = Modifier.fillMaxWidth()
                         .gap(1.cssRem),
@@ -98,17 +114,18 @@ fun BlogListingPage() {
                 )
 
                 Row(
-                    modifier = Modifier.gap(1.cssRem).padding(top = 1.cssRem), verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.gap(1.cssRem).padding(top = 1.cssRem),
+                    verticalAlignment = Alignment.CenterVertically,
                     content = {
-                        BtnOutlined  (
-                            btnTitle = "View more",
+                        BtnOutlined(
+                            btnTitle = Res.StringRes.VIEW_MORE,
                             onClick = {
 
                             },
                         )
 
                         BtnFilled(
-                            btnTitle = "Subscribe",
+                            btnTitle = Res.StringRes.SUBSCRIBE,
                             onClick = {
 
                             },

@@ -8,14 +8,8 @@ import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Color
-import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
-import com.varabyte.kobweb.compose.ui.modifiers.gridRow
-import com.varabyte.kobweb.compose.ui.modifiers.gridTemplateRows
-import com.varabyte.kobweb.compose.ui.modifiers.minHeight
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.style.toAttrs
-import itsgenius.github.io.components.sections.Footer
 import itsgenius.github.io.components.sections.FooterTermsRightsSocialMedia
 import itsgenius.github.io.components.sections.NavHeader
 import kotlinx.browser.document

@@ -32,7 +32,7 @@ fun FooterTermsRightsSocialMedia(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        HorizontalDivider(modifier = Modifier.backgroundColor(color = palette.dividerColor).height(0.5.px))
+        HorizontalDivider(modifier = Modifier.backgroundColor(color = palette.dividerColor))
 
         FooterSocialIconList()
 

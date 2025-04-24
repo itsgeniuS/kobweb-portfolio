@@ -23,16 +23,10 @@ import org.jetbrains.compose.web.css.px
 val blogContentHint = CssStyle.base {
     Modifier
         .fontSize(0.75.cssRem)
-        .textAlign(TextAlign.Start)
+        .textAlign(TextAlign.Center)
         .lineHeight(1.2)
-        .overflow(Overflow.Hidden)
         .color(color = colorMode.toSitePalette().iconTintLight.toRgb())
         .letterSpacing(value = 1.25.px)
-        .styleModifier {
-            property("display", "-webkit-box")
-            property("-webkit-box-orient", "vertical")
-            property("-webkit-line-clamp", "1")
-        }
         .borderRadius(8.cssRem)
         .padding(left = 4.px, bottom = 6.px)
         .fontFamily(Res.Fonts.IBM_PLEX_MONO)

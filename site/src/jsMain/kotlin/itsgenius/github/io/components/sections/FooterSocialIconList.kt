@@ -9,6 +9,8 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
+import itsgenius.github.io.components.Res.Icons
+import itsgenius.github.io.components.routes.SocialLinks
 import itsgenius.github.io.toSitePalette
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.*
@@ -20,11 +22,11 @@ fun FooterSocialIconList() {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         EmptyBoxSmallHorizontal(size = 1.cssRem)
-        SocialMediaIcon(iconPath = "", url = "")
+        SocialMediaIcon(iconPath = Icons.GITHUB, url = SocialLinks.GITHUB)
         EmptyBoxSmallHorizontal(size = 1.cssRem)
-        SocialMediaIcon(iconPath = "", url = "")
+        SocialMediaIcon(iconPath = Icons.LINKED_IN, url = SocialLinks.LINKED_IN)
         EmptyBoxSmallHorizontal(size = 1.cssRem)
-        SocialMediaIcon(iconPath = "", url = "")
+        SocialMediaIcon(iconPath = Icons.TELEGRAM, url = SocialLinks.TELEGRAM)
         EmptyBoxSmallHorizontal(size = 1.cssRem)
     }
 }
@@ -49,7 +51,6 @@ fun SocialMediaIcon(
                 window.open(url, "_blank")
             }
     ) {
-        Image(iconPath, url, Modifier.height(16.px).width(16.px))
-
+        Image(iconPath, url, Modifier.height(24.px).width(24.px))
     }
 }
